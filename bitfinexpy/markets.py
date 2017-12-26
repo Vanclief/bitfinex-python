@@ -1,34 +1,18 @@
-import requests
-import json
+from requester import Requester
 
-# Configuration variables
+TICKER_URL = "/pubticker/"
+STATS_URL = "/stats/"
+FUNDING_URL = "/lendbook/"
+ORDERS_URL = "/book/"
+TRADES_URL = "/trades/"
+LENDS_URL = "/lends/"
+SYMBOLS_URL = "/symbols"
+SYMBOL_DETAILS = "/symbols_details"
 
-api_key = None
-api_base = 'https://api.bitfinex.com/v1/'
+r = Requester()
 
 
-class Market:
-    def _get(self, url):
-        """
-        Make get http request, return status and response
-        """
-
-        r = requests.request("GET", url)
-        status_code = r.status_code
-        response = json.loads(r.text)
-
-        return status_code, self._to_float(response)
-
-    def _to_float(self, d):
-        """
-        Strings to Float from response
-        """
-        if type(d) is dict:
-            for key, value in d.items():
-                if type(value) is str:
-                    d[key] = float(value)
-
-        return d
+class Market(object):
 
     def get_ticker(self, symbol):
         """
@@ -47,8 +31,8 @@ class Market:
         }
         """
 
-        url = api_base + "/pubticker/" + symbol
-        return self._get(url)
+        endpoint = TICKER_URL + symbol
+        return r.get(endpoint)
 
     def get_stats(self, symbol):
         """
@@ -69,8 +53,8 @@ class Market:
         }]
         """
 
-        url = api_base + "/stats/" + symbol
-        return self._get(url)
+        endpoint = STATS_URL + symbol
+        return r.get(endpoint)
 
     def get_fundingbook(self, currency):
         """
@@ -95,8 +79,8 @@ class Market:
          }
         """
 
-        url = api_base + "/lendbook/" + currency
-        return self._get(url)
+        endpoint = FUNDING_URL + currency
+        return r.get(endpoint)
 
     def get_orderbook(self, symbol):
         """
@@ -117,8 +101,8 @@ class Market:
         }
         """
 
-        url = api_base + "/book/" + symbol
-        return self._get(url)
+        endpoint = ORDERS_URL + symbol
+        return r.get(endpoint)
 
     def get_trades(self, symbol):
         """
@@ -135,8 +119,8 @@ class Market:
          }]
         """
 
-        url = api_base + "/trades/" + symbol
-        return self._get(url)
+        endpoint = TRADES_URL + symbol
+        return r.get(endpoint)
 
     def get_lends(self, currency):
         """
@@ -151,8 +135,8 @@ class Market:
         }]
         """
 
-        url = api_base + "/lends/" + currency
-        return self._get(url)
+        endpoint = LENDS_URL + currency
+        return r.get(endpoint)
 
     def get_symbols(self):
         """
@@ -166,8 +150,8 @@ class Market:
         ]
         """
 
-        url = api_base + "/symbols"
-        return self._get(url)
+        endpoint = SYMBOLS_URL
+        return r.get(endpoint)
 
     def get_symbol_details(self):
         """
@@ -187,11 +171,11 @@ class Market:
         ]
         """
 
-        url = api_base + "/symbols_details"
-        return self._get(url)
+        endpoint = SYMBOL_DETAILS
+        return r.get(endpoint)
 
 
 m = Market()
 
-s, r = m.get_trades("btcusd")
+s, r = m.get_ticker("btcusd")
 print(s, r)
