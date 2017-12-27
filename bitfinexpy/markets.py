@@ -1,4 +1,5 @@
 from requester import Requester
+from helpers import Helper
 
 TICKER_URL = "/pubticker/"
 STATS_URL = "/stats/"
@@ -10,6 +11,7 @@ SYMBOLS_URL = "/symbols"
 SYMBOL_DETAILS = "/symbols_details"
 
 r = Requester()
+helpers = Helper()
 
 
 class Market(object):
@@ -32,7 +34,9 @@ class Market(object):
         """
 
         endpoint = TICKER_URL + symbol
-        return r.get(endpoint)
+        status, response = r.get(endpoint)
+
+        return status, helpers.dict_to_float(response)
 
     def get_stats(self, symbol):
         """
@@ -54,7 +58,9 @@ class Market(object):
         """
 
         endpoint = STATS_URL + symbol
-        return r.get(endpoint)
+        status, response = r.get(endpoint)
+
+        return status, helpers.list_dict_to_float(response)
 
     def get_fundingbook(self, currency):
         """
@@ -80,7 +86,15 @@ class Market(object):
         """
 
         endpoint = FUNDING_URL + currency
-        return r.get(endpoint)
+        status, response = r.get(endpoint)
+
+        for fund_type in response.keys():
+            for fund in response[fund_type]:
+                for key, value in fund.items():
+                    if key in ['rate', 'period', 'amount', 'timestamp']:
+                        fund[key] = float(value)
+
+        return status, response
 
     def get_orderbook(self, symbol):
         """
@@ -174,8 +188,3 @@ class Market(object):
         endpoint = SYMBOL_DETAILS
         return r.get(endpoint)
 
-
-m = Market()
-
-s, r = m.get_ticker("btcusd")
-print(s, r)
