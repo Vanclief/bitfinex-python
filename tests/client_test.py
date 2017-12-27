@@ -1,6 +1,4 @@
 from bitfinexpy.bitfinex import Bitfinex
-# import mock
-# import requests
 import httpretty
 
 client = Bitfinex()
@@ -14,7 +12,20 @@ LENDS_URL = 'https://api.bitfinex.com/v1/lends/'
 SYMBOLS_URL = 'https://api.bitfinex.com/v1/symbols'
 SYMBOL_DETAILS = 'https://api.bitfinex.com/v1/symbols_details'
 
-# TODO add initialization tests
+
+def test_should_have_correct_url():
+    b = Bitfinex()
+    assert b.api_base == 'https://api.bitfinex.com/v1/'
+
+
+def test_should_have_api_key():
+    b = Bitfinex('974554aed089', '2976be9e189d')
+    assert b.api_key == '974554aed089'
+
+
+def test_should_have_secret_key():
+    b = Bitfinex('974554aed089', '2976be9e189d')
+    assert b.api_secret == '2976be9e189d'
 
 
 @httpretty.activate
