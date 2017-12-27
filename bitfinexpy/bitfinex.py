@@ -1,4 +1,4 @@
-from markets import Market
+from bitfinexpy.markets import Market
 
 
 class Bitfinex(object):

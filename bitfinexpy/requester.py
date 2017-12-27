@@ -5,7 +5,7 @@ import json
 class Requester(object):
 
     def __init__(self, api_base):
-        self.api_base = 'https://api.bitfinex.com/v1/'
+        self.api_base = api_base
 
     def _construct_url(self, endpoint):
         """
@@ -20,6 +20,7 @@ class Requester(object):
         """
 
         url = self._construct_url(endpoint)
+        print(url)
 
         r = requests.request("GET", url)
         status_code = r.status_code
