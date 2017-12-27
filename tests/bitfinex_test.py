@@ -85,8 +85,11 @@ def should_return_fundingbook():
 def test_should_return_orderbook():
 
     mock_symbol = 'btcusd'
-    # mock_body = '["btcusd", "ltcusd", "ltcbtc"]'
-    mock_url = ORDERS_URL + mock_currency
+    mock_body = (
+            '{"bids":[{"price":"562.2601", "amount":"0.985", ' +
+            '"timestamp":"1395567556.0"}],"asks":[{"price":"563.001", ' +
+            '"amount":"0.3","timestamp":"1395532200.0"}]}')
+    mock_url = ORDERS_URL + mock_symbol
     mock_status = 200
 
     httpretty.register_uri(
@@ -103,7 +106,9 @@ def test_should_return_orderbook():
 def test_should_return_trades():
 
     mock_symbol = 'btcusd'
-    # mock_body = '["btcusd", "ltcusd", "ltcbtc"]'
+    mock_body = (
+            '[{ "timestamp":1444266681, "tid":11988919, "price":"244.8", ' +
+            '"amount":"0.03297384", "exchange":"bitfinex", "type":"sell"}]')
     mock_url = TRADES_URL + mock_symbol
     mock_status = 200
 
@@ -121,7 +126,11 @@ def test_should_return_trades():
 def test_should_return_lends():
 
     mock_currency = 'usd'
-    # mock_body = '["btcusd", "ltcusd", "ltcbtc"]'
+    mock_body = (
+            '[{ "rate":"9.8998", "amount_lent":"22528933.77950878",' +
+            '"amount_used":"0.0", "timestamp":1444264307},' +
+            '{ "rate":"9.8998", "amount_lent":"22528933.77950878",' +
+            '"amount_used":"0.0", "timestamp":1444264307}] ')
     mock_url = LENDS_URL + mock_currency
     mock_status = 200
 
@@ -155,7 +164,17 @@ def test_should_return_symbols():
 @httpretty.activate
 def test_should_return_symbol_details():
 
-    # mock_body = '["btcusd", "ltcusd", "ltcbtc"]'
+    mock_body = (
+            '[{ "pair":"btcusd", "price_precision":5,' +
+            '"initial_margin":"30.0", "minimum_margin":"15.0",' +
+            '"maximum_order_size":"2000.0", "minimum_order_size":"0.01",' +
+            '"expiration":"NA" },{ "pair":"ltcusd", "price_precision":5,' +
+            '"initial_margin":"30.0", "minimum_margin":"15.0",' +
+            '"maximum_order_size":"5000.0", "minimum_order_size":"0.1", ' +
+            '"expiration":"NA" },{ "pair":"ltcbtc", "price_precision":5,' +
+            '"initial_margin":"30.0", "minimum_margin":"15.0",' +
+            '"maximum_order_size":"5000.0", "minimum_order_size":"0.1",' +
+            '"expiration":"NA"}]')
     mock_url = SYMBOL_DETAILS
     mock_status = 200
 
