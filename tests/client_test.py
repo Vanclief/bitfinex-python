@@ -203,6 +203,7 @@ def test_should_return_symbols():
     response = client.symbols()
     assert expected_response == response[1]
 
+
 @httpretty.activate
 def test_should_return_symbol_details():
 

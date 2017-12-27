@@ -5,11 +5,11 @@ each exchange has a different api. This results on a lot of disparities on how l
 
 Planned exchanges:
 
-- [ ] Bitfinex
-- [ ] Kraken
-- [ ] Bitso
-- [ ] Gdax/Coinbase
-- [ ] Gemini
+- [ ] [Bitfinex](https://github.com/Vanclief/bitfinex-python)
+- [ ] [Kraken](https://github.com/Vanclief/kraken-python)
+- [ ] [Bitso](https://github.com/Vanclief/bitso-python)
+- [ ] [Gdax/Coinbase](https://github.com/Vanclief/gdax-python)
+- [ ] [Gemini](https://github.com/Vanclief/gemini-python)
 
 *Note:* While I attempt to avoid making breaking changes, this library is still 
 work in progress (WIP), use under your own risk.
@@ -34,12 +34,12 @@ b.ticker('btcusd')
 
 ## TODO
 
-- [ ]  Add tests WIP
+- [X]  Add tests
 - [X]  Add public endpoints
 - [ ]  Add requirements, setup, etc.
 - [ ]  Add private endpoints
 - [ ]  Unify interface for trading endpoints
-= [ ]  Upload to pip
+- [ ]  Upload to pip
 
 ## Contribution
 
