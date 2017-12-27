@@ -1,12 +1,12 @@
 from bitfinexpy.requester import Requester
 import bitfinexpy.helpers as helpers
 
-TICKER_URL = "/pubticker/"
-STATS_URL = "/stats/"
-FUNDING_URL = "/lendbook/"
-ORDERS_URL = "/book/"
-TRADES_URL = "/trades/"
-LENDS_URL = "/lends/"
+TICKER_URL = "pubticker/"
+STATS_URL = "stats/"
+FUNDING_URL = "lendbook/"
+ORDERS_URL = "book/"
+TRADES_URL = "trades/"
+LENDS_URL = "lends/"
 SYMBOLS_URL = "symbols"
 SYMBOL_DETAILS = "symbols_details"
 

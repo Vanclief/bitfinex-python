@@ -8,7 +8,7 @@ def dict_to_float(d):
                 try:
                     d[key] = float(value)
                 except ValueError:
-                    d[key] = value
+                    d[key] = str(value)
 
     return d
 
