@@ -3,6 +3,14 @@
 While there are existing python libraries for most cryptocurrency exchanges,
 each exchange has a different api. This results on a lot of disparities on how libraries are implemented, and as such each one has a very different usage, and return values. This library attempts to set a standardized way for exchange libraries.
 
+Planned exchanges:
+
+- [ ] Bitfinex
+- [ ] Kraken
+- [ ] Bitso
+- [ ] Gdax/Coinbase
+- [ ] Gemini
+
 *Note:* While I attempt to avoid making breaking changes, this library is still 
 work in progress (WIP), use under your own risk.
 
