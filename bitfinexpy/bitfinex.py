@@ -7,7 +7,7 @@ class Bitfinex(object):
         self.api_key = key
         self.api_secret = secret
         self.api_base = 'https://api.bitfinex.com/v1/'
-        self.market = Market()
+        self.market = Market(self.api_base)
 
     def ticker(self, symbol):
         return self.market.get_ticker(symbol)

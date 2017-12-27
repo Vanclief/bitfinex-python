@@ -1,16 +1,18 @@
 import requests
 import json
 
-api_base = 'https://api.bitfinex.com/v1/'
-
 
 class Requester(object):
+
+    def __init__(self, api_base):
+        self.api_base = 'https://api.bitfinex.com/v1/'
+
     def _construct_url(self, endpoint):
         """
         Construct the url
         """
 
-        return api_base + endpoint
+        return self.api_base + endpoint
 
     def get(self, endpoint):
         """

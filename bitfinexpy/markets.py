@@ -1,5 +1,5 @@
 from requester import Requester
-from helpers import Helper
+import helpers
 
 TICKER_URL = "/pubticker/"
 STATS_URL = "/stats/"
@@ -10,11 +10,11 @@ LENDS_URL = "/lends/"
 SYMBOLS_URL = "/symbols"
 SYMBOL_DETAILS = "/symbols_details"
 
-r = Requester()
-helpers = Helper()
-
 
 class Market(object):
+
+    def __init__(self, api_base):
+        self.r = Requester(api_base)
 
     def get_ticker(self, symbol):
         """
@@ -34,7 +34,7 @@ class Market(object):
         """
 
         endpoint = TICKER_URL + symbol
-        status, response = r.get(endpoint)
+        status, response = self.r.get(endpoint)
 
         if status != 200:
             return status, response
@@ -61,7 +61,7 @@ class Market(object):
         """
 
         endpoint = STATS_URL + symbol
-        status, response = r.get(endpoint)
+        status, response = self.r.get(endpoint)
 
         if status != 200:
             return status, response
@@ -92,7 +92,7 @@ class Market(object):
         """
 
         endpoint = FUNDING_URL + currency
-        status, response = r.get(endpoint)
+        status, response = self.r.get(endpoint)
 
         for fund_type in response.keys():
             for fund in response[fund_type]:
@@ -125,7 +125,7 @@ class Market(object):
         """
 
         endpoint = ORDERS_URL + symbol
-        status, response = r.get(endpoint)
+        status, response = self.r.get(endpoint)
 
         if status != 200:
             return status, response
@@ -153,7 +153,7 @@ class Market(object):
         """
 
         endpoint = TRADES_URL + symbol
-        status, response = r.get(endpoint)
+        status, response = self.r.get(endpoint)
 
         if status != 200:
             return status, response
@@ -174,7 +174,7 @@ class Market(object):
         """
 
         endpoint = LENDS_URL + currency
-        status, response = r.get(endpoint)
+        status, response = self.r.get(endpoint)
 
         if status != 200:
             return status, response
@@ -194,7 +194,7 @@ class Market(object):
         """
 
         endpoint = SYMBOLS_URL
-        return r.get(endpoint)
+        return self.r.get(endpoint)
 
     def get_symbol_details(self):
         """
@@ -215,7 +215,7 @@ class Market(object):
         """
 
         endpoint = SYMBOL_DETAILS
-        status, response = r.get(endpoint)
+        status, response = self.r.get(endpoint)
 
         if status != 200:
             return status, response
