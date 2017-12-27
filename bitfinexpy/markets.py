@@ -36,6 +36,9 @@ class Market(object):
         endpoint = TICKER_URL + symbol
         status, response = r.get(endpoint)
 
+        if status != 200:
+            return status, response
+
         return status, helpers.dict_to_float(response)
 
     def get_stats(self, symbol):
@@ -59,6 +62,9 @@ class Market(object):
 
         endpoint = STATS_URL + symbol
         status, response = r.get(endpoint)
+
+        if status != 200:
+            return status, response
 
         return status, helpers.list_dict_to_float(response)
 
@@ -94,6 +100,9 @@ class Market(object):
                     if key in ['rate', 'period', 'amount', 'timestamp']:
                         fund[key] = float(value)
 
+        if status != 200:
+            return status, response
+
         return status, response
 
     def get_orderbook(self, symbol):
@@ -116,7 +125,17 @@ class Market(object):
         """
 
         endpoint = ORDERS_URL + symbol
-        return r.get(endpoint)
+        status, response = r.get(endpoint)
+
+        if status != 200:
+            return status, response
+
+        for order_type in response.keys():
+            for order in response[order_type]:
+                for key, value in order.items():
+                    order[key] = float(value)
+
+        return status, response
 
     def get_trades(self, symbol):
         """
@@ -134,7 +153,12 @@ class Market(object):
         """
 
         endpoint = TRADES_URL + symbol
-        return r.get(endpoint)
+        status, response = r.get(endpoint)
+
+        if status != 200:
+            return status, response
+
+        return status, helpers.list_dict_to_float(response)
 
     def get_lends(self, currency):
         """
@@ -150,7 +174,12 @@ class Market(object):
         """
 
         endpoint = LENDS_URL + currency
-        return r.get(endpoint)
+        status, response = r.get(endpoint)
+
+        if status != 200:
+            return status, response
+
+        return status, helpers.list_dict_to_float(response)
 
     def get_symbols(self):
         """
@@ -186,5 +215,9 @@ class Market(object):
         """
 
         endpoint = SYMBOL_DETAILS
-        return r.get(endpoint)
+        status, response = r.get(endpoint)
 
+        if status != 200:
+            return status, response
+
+        return status, helpers.list_dict_to_float(response)

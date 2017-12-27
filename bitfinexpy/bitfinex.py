@@ -25,7 +25,7 @@ class Bitfinex(object):
         return self.market.get_trades(symbol)
 
     def lends(self, currency):
-        return self.market.lends(currency)
+        return self.market.get_lends(currency)
 
     def symbols(self):
         return self.market.get_symbols()

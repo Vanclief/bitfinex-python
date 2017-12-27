@@ -13,13 +13,20 @@ TODO
 TODO
 
 ## Usage
+
+```
+from bitfinexpy import Bitfinex
 TODO
+
 
 ## TODO
 
 [ ]  Add tests
+
 [ ]  Add private endpoints
+
 [ ]  Add requirements, setup, etc.
+
 [ ]  Upload to pip
 
 ## Contribution

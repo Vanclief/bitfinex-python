@@ -7,7 +7,10 @@ class Helper(object):
         if type(d) is dict:
             for key, value in d.items():
                 if type(value) is str:
-                    d[key] = float(value)
+                    try:
+                        d[key] = float(value)
+                    except ValueError:
+                        d[key] = value
 
         return d
 
