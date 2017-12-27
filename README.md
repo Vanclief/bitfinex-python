@@ -5,7 +5,7 @@ each exchange has a different api. This results on a lot of disparities on how l
 
 Planned exchanges:
 
-- [ ] [Bitfinex](https://github.com/Vanclief/bitfinex-python)
+- [X] [Bitfinex](https://github.com/Vanclief/bitfinex-python)
 - [ ] [Kraken](https://github.com/Vanclief/kraken-python)
 - [ ] [Bitso](https://github.com/Vanclief/bitso-python)
 - [ ] [Gdax/Coinbase](https://github.com/Vanclief/gdax-python)
@@ -16,10 +16,15 @@ work in progress (WIP), use under your own risk.
 
 
 ## Instalation
-TODO
+Install from source with:
+
+```py
+python setup.py install
+```
 
 ### Requirements
-TODO
+
+* Python 3.3+
 
 ## Usage
 
@@ -31,12 +36,11 @@ b = Bitfinex()
 b.ticker('btcusd')
 ```
 
-
 ## TODO
 
 - [X]  Add tests
 - [X]  Add public endpoints
-- [ ]  Add requirements, setup, etc.
+- [X]  Add requirements, setup, etc.
 - [ ]  Add private endpoints
 - [ ]  Unify interface for trading endpoints
 - [ ]  Upload to pip
