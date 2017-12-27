@@ -14,20 +14,22 @@ TODO
 
 ## Usage
 
-```
+```py
 from bitfinexpy import Bitfinex
-TODO
+
+b = Bitfinex()
+
+b.ticker('btcusd')
+```
 
 
 ## TODO
 
-[ ]  Add tests
-
-[ ]  Add private endpoints
-
-[ ]  Add requirements, setup, etc.
-
-[ ]  Upload to pip
+- [ ]  Add tests WIP
+- [ ]  Add requirements, setup, etc.
+- [ ]  Add private endpoints
+- [ ]  Unify interface for trading endpoints
+= [ ]  Upload to pip
 
 ## Contribution
 
