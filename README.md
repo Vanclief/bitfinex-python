@@ -3,7 +3,8 @@
 While there are existing python libraries for most cryptocurrency exchanges,
 each exchange has a different api. This results on a lot of disparities on how libraries are implemented, and as such each one has a very different usage, and return values. This library attempts to set a standardized way for exchange libraries.
 
-*Note:* This library is WIP, use under your own risk.
+*Note:* While I attempt to avoid making breaking changes, this library is still 
+work in progress (WIP), use under your own risk.
 
 
 ## Instalation
@@ -26,6 +27,7 @@ b.ticker('btcusd')
 ## TODO
 
 - [ ]  Add tests WIP
+- [X]  Add public endpoints
 - [ ]  Add requirements, setup, etc.
 - [ ]  Add private endpoints
 - [ ]  Unify interface for trading endpoints
