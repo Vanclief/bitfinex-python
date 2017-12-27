@@ -1,2 +1,30 @@
-# bitfinex-wrapper
-Unofficial Python3 library for the Bitfinex API. https://bitfinex.com
+# bitfinex-python
+
+While there are existing python libraries for most cryptocurrency exchanges,
+each exchange has a different api. This results on a lot of disparities on how libraries are implemented, and as such each one has a very different usage, and return values. This library attempts to set a standardized way for exchange libraries.
+
+*Note:* This library is WIP, use under your own risk.
+
+
+## Instalation
+TODO
+
+### Requirements
+TODO
+
+## Usage
+TODO
+
+## TODO
+
+[ ]  Add tests
+[ ]  Add private endpoints
+[ ]  Add requirements, setup, etc.
+[ ]  Upload to pip
+
+## Contribution
+
+1. Discuss changes by creating a issue.
+2. Fork the project.
+3. Create a branch with fix, or feature with it's proper tests.
+4. Create a PR
