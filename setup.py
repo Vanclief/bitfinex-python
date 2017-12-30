@@ -11,7 +11,7 @@ with open('LICENSE') as f:
 
 setup(
     name='bitfinexpy',
-    version='0.1.1',
+    version='0.1.2',
     description='Unofficial Python3 library for the Bitfinex API',
     long_description=readme,
     author='Franco Valencia',
