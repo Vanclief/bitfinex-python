@@ -33,8 +33,9 @@ def test_should_return_ticker():
 
     mock_symbol = 'btcusd'
     mock_body = (
-            '{"mid":"562.56495","bid":"562.15","ask":"562.9799",' +
-            '"last_price":"562.25","timestamp":"1395552658.339936691"}')
+            '{"mid":"244.755","bid":"244.75","ask":"244.76",' +
+            '"last_price":"244.82","low":"244.2", "high":"248.19",' +
+            '"volume": "7842.11542563", "timestamp":"1395552658.339936691"}')
     mock_url = TICKER_URL + mock_symbol
     mock_status = 200
 
@@ -43,10 +44,13 @@ def test_should_return_ticker():
             )
 
     expected_response = {
-            "mid": 562.56495,
-            "bid": 562.15,
-            "ask": 562.9799,
-            "last_price": 562.25,
+            "mid": 244.755,
+            "bid": 244.75,
+            "ask": 244.76,
+            "last_price": 244.82,
+            "low": 244.2,
+            "high": 248.19,
+            "volume": 7842.11542563,
             "timestamp": 1395552658.339936691
             }
 
