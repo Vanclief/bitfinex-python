@@ -6,11 +6,11 @@ each exchange has a different api. This results on a lot of disparities on how l
 
 Supported exchanges:
 
-[Bitfinex](https://github.com/Vanclief/bitfinex-python)
-[Kraken](https://github.com/Vanclief/kraken-python)
-[Bitso](https://github.com/Vanclief/bitso-python)
-[Gdax](https://github.com/Vanclief/gdax-python)
-[Gemini](https://github.com/Vanclief/gemini-python)
+* [Bitfinex](https://github.com/Vanclief/bitfinex-python)
+* [Kraken](https://github.com/Vanclief/kraken-python)
+* [Bitso](https://github.com/Vanclief/bitso-python)
+* [Gdax](https://github.com/Vanclief/gdax-python)
+* [Gemini](https://github.com/Vanclief/gemini-python)
 
 *Note:* While I attempt to avoid making breaking changes, this library is still work in progress (WIP), use under your own risk.
 
@@ -47,8 +47,8 @@ ticker = {
   "bid": 333.98,
   "ask": 333.99,
   "last_price": 333.99,
-  "low": 321.1, # Not supported by Gdax
-  "high": 345.9, # Not supported by Gdax
+  "low": 321.1, # Not supported by some exchanges
+  "high": 345.9, # Not supported by some exchanges
   "volume": 5957.11914015,
   "timestamp": 1447533963.0
 }
@@ -80,7 +80,7 @@ trades = expected_response = [
     "tid": 74,
     "price": 10.0,
     "amount": 0.01,
-    "exchange": "Gdax",
+    "exchange": "Bitfinex",
     "type": "buy"
   } ...
 ]
